@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+
+{% block container %}
+<div class="container">
+    {% for dd in describdetail %}
+    <div class="modal-content">
+        <div class="row title">
+            <div class="col-sm-12">
+                <h5 class="col-sm-offset-3">{{ dd.imgtitle }}</h5>
+            </div>
+        </div>
+        <div class="row images">
+            <div class="col-sm-12">
+                <img class="img-responsive" src="/static/media/{{ dd.images }}" alt="describ祥细页面">
+            </div>
+        </div>
+        <div class="row images">
+            <div class="col-sm-12">
+                <p class="center-block">{{ dd.content }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock container %}

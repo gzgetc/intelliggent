@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>智软科技网站首页</title>
+{% endblock title %}
+
+
+{% block page-header %}
+<div class="panel-default">
+    <div id="myCarousel" class="carousel slide">
+    <!-- 轮播（Carousel）指标 -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+    <!-- 轮播（Carousel）项目 -->
+    <div class="carousel-inner">
+        <div class="item active">
+            {% for plo in photolbumone %}
+            <img src="/static/media/{{ plo.images }}" alt="First slide">
+            <div class="carousel-caption"><h3>{{ plo.imgtitle }}</h3></div>
+            {% endfor %}
+        </div>
+        <div class="item">
+            {% for plt in photolbumtwo %}
+            <img src="/static/media/{{ plt.images }}" alt="Second slide">
+            <div class="carousel-caption"><h3>{{ plt.imgtitle }}</h3></div>
+            {% endfor %}
+        </div>
+        <div class="item">
+            {% for plt in photolbumthree %}
+            <img src="/static/media/{{ plt.images }}" alt="Third slide">
+            <div class="carousel-caption"><h3>{{ plt.imgtitle }}</h3></div>
+            {% endfor %}
+        </div>
+        <div class="item">
+            {% for plf in photolbumfour %}
+            <img src="/static/media/{{ plf.images }}" alt="Fourth slide">
+            <div class="carousel-caption"><h3>{{ plf.imgtitle }}</h3></div>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- 轮播（Carousel）导航 -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+</div>
+{% endblock page-header %}
+
+
+
+{% block mainbody %}
+<div class="col-sm-12">
+    <div class="row">
+        {% for pd in photodescrib %}
+        <div class="col-lg-4">
+            <h2>{{ pd.imgtitle }}</h2>
+            <img class="img-responsive" src="/static/media/{{ pd.images }}" alt="{{ pd.imgname }}">
+            <p><a class="btn btn-default" href="{% url 'describ' pd.imgname %}" role="button">查看详情 &raquo;</a></p>
+        </div><!--/.col-xs-6.col-lg-4-->
+        {% endfor %}
+    </div><!--/row-->
+</div><!-- /.blog-main -->
+{% endblock mainbody %}
+
+

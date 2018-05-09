@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% for ac in aboutcontent %}
+<title>{{ ac.title }}</title>
+{% endfor %}
+{% endblock title %}
+
+{% block page-header %}
+<div class="panel-default">
+    {% for ac in aboutcontent %}
+    <img class="img-responsive" src="/static/media/{{ ac.headimg }}" alt="">
+    {% endfor %}
+</div>
+{% endblock page-header %}
+
+
+{% block mainbody %}
+<div class="container">
+    <div class="row center-block">
+
+        {% for ag in aboutgather %}
+        <div class="col-sm-6">
+            <img class="img-responsive" src="/static/media/{{ ag.images }}" alt="{{ ag.name }}">
+            <hr>
+            <p>{{ ag.content }}</p>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+{% endblock %}
+
+{% block centerblock %}
+<div class="row center-block">
+    <div class="container">
+        {% for ac in aboutcontent %}
+        <img class="img-responsive" src="/static/media/{{ ac.bottonadvert }}" alt="">
+        {% endfor %}
+    </div>
+</div>
+{% endblock centerblock %}
